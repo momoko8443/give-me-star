@@ -1,0 +1,13 @@
+{
+  "name": "ukulelejs",
+  "homepage": "https://github.com/momoko8443/ukulelejs",
+  "_release": "1f3714b861",
+  "_resolution": {
+    "type": "branch",
+    "branch": "typescript",
+    "commit": "1f3714b861e6ef4de511aaf011a7d3dfb05a56db"
+  },
+  "_source": "https://github.com/momoko8443/ukulelejs.git",
+  "_target": "typescript",
+  "_originalSource": "ukulelejs"
+}

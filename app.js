@@ -2,9 +2,11 @@ var express = require('express');
 var request = require('request');
 var querystring = require('querystring');
 var crypto = require('crypto');
-
+var path = require('path');
+var port = process.argv[2] || 3000;
 
 var app = express();
+app.use(express.static(path.join(__dirname, 'public')));
 //move to other module
 var client_id = 'd7555f0b2d932fd46695';
 var client_secret = 'b8bd615a953cbd2122a261e72688696dfa4b3ad2';
@@ -73,7 +75,7 @@ app.get('/user',function(req,res){
     }
 });
 
-app.listen(8080,function(){
-    console.log('give me star is running on port 8080');
+app.listen(port,function(){
+    console.log('give me star is running on port %d',port);
     //console.log(querystring.stringify(opt));
 });

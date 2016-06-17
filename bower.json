@@ -1,0 +1,12 @@
+{
+  "name": "give-me-star",
+  "homepage": "https://github.com/momoko8443/give-me-star",
+  "description": "demo",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "ukulelejs": "typescript",
+    "bootstrap": "^3.3.6"
+  }
+}
