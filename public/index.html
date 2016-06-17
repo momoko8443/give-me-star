@@ -3,13 +3,39 @@
     <head>
         <title>give me star</title>
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/ukulelejs/dist/uku.js"></script>
     </head>
     <body uku-application>
-         
+        <div class="row">
+            <div class="col-md-12 banner">
+                <label class="logo">GIVE ME STAR</label>
+                <h1 class="solgan">......</h1>
+            </div>
+        </div>
+        <div class="container" style="padding:20px">
+            <div class="row">
+                <div class="col-md-8">.col-md-8</div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-success" uku-onclick="mainCtrl.authorization()">Login with Github account</button>
+                </div>
+            </div>
+        </div>
     </body>
     <script>
-        
+        var uku = new Ukulele();
+        uku.registerController('mainCtrl',new MainController(uku));
+        uku.init();
+
+        function MainController(uku){
+            this.authorization = function(){
+                fetch("/auth-github").then(function(res){
+                    
+                },function(err){
+                    console.log("Fetch failed!", err);
+                });
+            };
+        }
     </script>
 </html>

@@ -1,0 +1,43 @@
+body {
+    overflow-x: hidden;
+    font-family: "微软雅黑";
+}
+
+.clear {
+    clear: both;
+}
+
+.banner{
+    background-color: #77B6FF;
+    height: 250px;
+    margin-left:-10px;
+    margin-right:-10px
+}
+
+.solgan{
+    color:#006363;
+    font-weight: bold;
+    position: absolute;
+    font-size:36px; 
+    top:100px;
+    right: 50px
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 48pt;
+    color: #006363;
+}
+
+.spinner {
+    margin: 100px auto;
+    width: 32px;
+    height: 32px;
+    position: relative;
+}
+
+
+
+

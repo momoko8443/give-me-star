@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //move to other module
 var client_id = 'd7555f0b2d932fd46695';
 var client_secret = 'b8bd615a953cbd2122a261e72688696dfa4b3ad2';
-var redirect_uri = 'http://gms.ittun.com/oauth';
+var redirect_uri = 'http://gms.tiger.mopaasapp.com/oauth';
 var scope = 'user public_repo';
 var state = generateState();
 var allow_signup = true;
@@ -30,7 +30,7 @@ var github_authorization_url = 'https://github.com/login/oauth/authorize';
 var github_access_token_url = 'https://github.com/login/oauth/access_token';
 var github_api_get_user = "https://api.github.com/user";
 
-app.get('/',function(req,res){
+app.get('/auth-github',function(req,res){
     var opt = {
         client_id:client_id,
         redirect_uri:redirect_uri,
@@ -77,5 +77,4 @@ app.get('/user',function(req,res){
 
 app.listen(port,function(){
     console.log('give me star is running on port %d',port);
-    //console.log(querystring.stringify(opt));
 });
