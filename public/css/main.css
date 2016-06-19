@@ -15,7 +15,7 @@ body {
 }
 
 .solgan{
-    color:#006363;
+    color:#008080;
     font-weight: bold;
     position: absolute;
     font-size:36px; 
@@ -28,14 +28,14 @@ body {
     top: 30px;
     left: 30px;
     font-size: 48pt;
-    color: #006363;
+    color:#008080;
 }
 
-.spinner {
-    margin: 100px auto;
-    width: 32px;
-    height: 32px;
-    position: relative;
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 

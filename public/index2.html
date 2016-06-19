@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>give me star</title>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/ukulelejs/dist/uku.js"></script>
+    </head>
+    <body uku-application>
+        <div class="row">
+            <div class="col-md-12 banner">
+                <label class="logo">GIVE ME STAR</label>
+                <h1 class="solgan">妈妈再也不用担心面试官问我有没有开源项目了</h1>
+            </div>
+        </div>
+        <div class="container" style="padding:100px">
+            <div class="row" uku-style="mainCtrl.hidden">
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-success" uku-onclick="mainCtrl.authorization()">使用Github账号登录</button>
+                </div>
+                <div class="col-md-5"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 uku-text="mainCtrl.name"></h3>
+                    <button type="button" uku-style="mainCtrl.hidden2" class="btn btn-success" uku-onclick="mainCtrl.userInfo()">列出你那些可怜的Repo</button>
+                    <img uku-src="mainCtrl.avatar_url" style="width:320px">
+                </div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <tr uku-repeat="repo in mainCtrl.repos">
+                            <td uku-text="repo.name"></td>
+                            <td uku-text="repo.starts"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var uku = new Ukulele();
+        var mainCtrl = new MainController(uku);
+        uku.registerController('mainCtrl',mainCtrl);
+        uku.addListener(Ukulele.INITIALIZED,function(){
+            var status = "signout";
+            if(location.search === '?signin=successful'){
+                status = "signin";
+            }else if(location.search === '?signin=failed'){
+                alert('sign in again please');
+                status = "sigout";
+            }
+            mainCtrl.setSignInStatus(status);
+        });
+        uku.init();
+
+        function MainController(uku){
+            var self = this;
+            this.hidden = "display:block";
+            this.hidden2 = "display:block";
+            this.name = "";
+            this.message = "";
+            this.repos = [];
+            this.setSignInStatus = function(status){
+                if(status === 'signin'){
+                    this.hidden = {display:'none'};
+                    this.hidden2 = {display:'block'};
+                }else{
+                    this.hidden = {display:'block'};
+                    this.hidden2 = {display:'none'};
+                }
+                uku.refresh('mainCtrl');
+            };
+            this.userInfo = function(){
+                fetch('/user',{credentials: 'same-origin'}).then(function(res){
+                    if (res.ok) {
+                        res.json().then(function(data) {
+                            self.name = 'Hello '+data.name;
+                            self.avatar_url = data.avatar_url;
+                            self.repos = data.repos;
+                            uku.refresh('mainCtrl');
+                            console.log(data);
+                        });
+                    } 
+                },function(err){
+                    console.log("Fetch failed!", err);
+                });
+            }
+            this.authorization = function(){
+                location.href = '/authorization';
+            };
+        }
+    </script>
+</html>

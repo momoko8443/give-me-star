@@ -1,80 +1,58 @@
+var config = require('./server/configuration/Config');
 var express = require('express');
-var request = require('request');
-var querystring = require('querystring');
-var crypto = require('crypto');
+var session = require('express-session');
 var path = require('path');
-var port = process.argv[2] || 3000;
-
+var hack = require('./server/util/Hack');
+var authorizationRouter = require('./server/router/AuthorizationRouter');
+var userRouter = require('./server/router/UserRouter');
+var sessionPool = require('./server/model/SessionTokenPool');
 var app = express();
+
+var server = config.server;
 app.use(express.static(path.join(__dirname, 'public')));
-//move to other module
-var client_id = 'd7555f0b2d932fd46695';
-var client_secret = 'b8bd615a953cbd2122a261e72688696dfa4b3ad2';
-var redirect_uri = 'http://gms.tiger.mopaasapp.com/oauth';
-var scope = 'user public_repo';
-var state = generateState();
-var allow_signup = true;
-var code = undefined;
-var app_name = 'give-me-star';
-
-
-function generateState(){
-    const secret = 'give-me-star';
-    const hash = crypto.createHmac('sha256', secret)
-                    .update('I love ukulele')
-                    .digest('hex');
-    return hash;
-}
-//
-var github_authorization_url = 'https://github.com/login/oauth/authorize';
-var github_access_token_url = 'https://github.com/login/oauth/access_token';
-var github_api_get_user = "https://api.github.com/user";
-
-app.get('/auth-github',function(req,res){
-    var opt = {
-        client_id:client_id,
-        redirect_uri:redirect_uri,
-        scope:scope,
-        state:state,
-        allow_signup:allow_signup
-    };
-    var url = github_authorization_url+'?'+querystring.stringify(opt);
-    res.redirect(url);
-});
-var access_token = undefined;
-app.get('/oauth',function(req,res){
-    code = req.query.code;
-    var returnState = req.query.state;
-    if(code && state === returnState){
-        var opt = {
-            client_id:client_id,
-            client_secret:client_secret,
-            redirect_uri:redirect_uri,
-            code:code,
-            state:state
-        };
-        request.post({url:github_access_token_url,form:opt,json:true},function(error,response,body){
-            if(error){
-                console.error(error);
-                return;
-            }
-            access_token = body.access_token;
-            console.log(body);
-            res.redirect('/user');
-        });
+app.use(session({
+  secret: 'give me star',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(function (req, res, next) {
+  if (sessionPool[req.session.id]) {
+    if (req.url === '/' || req.url.search('/index2.html') !== -1 ) {
+      if (req.url.search('signin=successful') !== -1) {
+        next();
+      } else {
+        res.redirect('/index2.html?signin=successful');
+      }
+    } else {
+      next();
+    }
+  }else{
+    if (req.url.search('/authorization') !== -1) {
+      next();
     }else{
-        res.sendStatus(500);
+      res.redirect('/index2.html');
     }
+  }
+  /*if(req.url === '/index2.html' || req.url === '/index2.html?signin=failed'){
+      if(sessionPool[req.session.id]){
+          res.redirect('/index2.html?signin-successful');
+      }else{
+          next();
+      }
+  }else if(req.url.search('/authorization') === -1){
+      if(sessionPool[req.session.id]){
+          next();
+      }else{
+          res.redirect('/index2.html');
+      }  
+  }else{
+    next();
+  }*/
 });
 
-app.get('/user',function(req,res){
-    if(access_token){
-        request({url:github_api_get_user,json:true,headers:{'User-Agent':app_name,Authorization:'token '+access_token}},function(error,response,body){
-            console.log(body);
-        });
-    }
-});
+app.use('/authorization', authorizationRouter);
+app.use('/user', userRouter);
 
-app.listen(port,function(){
-    console.log('give me star is running on port %d',port);
+app.listen(server.port, function () {
+  console.log('give me star is running on port %d', server.port);
 });
