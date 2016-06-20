@@ -1,0 +1,21 @@
+{
+    "server":{
+        "port":8080
+    },
+    "app":{
+        "client_id":"d7555f0b2d932fd46695",
+        "client_secret":"b8bd615a953cbd2122a261e72688696dfa4b3ad2",
+        "redirect_uri":"http://localhost:8080/authorization/oauth",
+        "scope":"user public_repo",
+        "allow_signup":true,
+        "app_name":"give-me-star"
+    },
+    "oauth":{
+        "authorization_url":"http://localhost:8089/login/oauth/authorize",
+        "access_token_url":"http://localhost:8089/login/oauth/access_token"
+    },
+    "api":{
+        "user":"http://localhost:8089/user",
+        "repos":"http://localhost:8089/users/{0}/repos"
+    }
+}

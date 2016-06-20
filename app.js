@@ -33,21 +33,6 @@ app.use(function (req, res, next) {
       res.redirect('/index2.html');
     }
   }
-  /*if(req.url === '/index2.html' || req.url === '/index2.html?signin=failed'){
-      if(sessionPool[req.session.id]){
-          res.redirect('/index2.html?signin-successful');
-      }else{
-          next();
-      }
-  }else if(req.url.search('/authorization') === -1){
-      if(sessionPool[req.session.id]){
-          next();
-      }else{
-          res.redirect('/index2.html');
-      }  
-  }else{
-    next();
-  }*/
 });
 
 app.use('/authorization', authorizationRouter);
