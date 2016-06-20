@@ -1,0 +1,4 @@
+{
+    "/user":"./response/user.json",
+    "/users/*/repos":"./response/repos.json"
+}
