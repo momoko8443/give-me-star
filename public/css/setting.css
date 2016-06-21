@@ -1,0 +1,59 @@
+@charset "utf-8";
+html,
+body,
+header,
+section,
+footer,
+article,
+nav,
+aside,
+dialog,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p,
+textarea,
+input {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+html,
+body,
+form,
+fieldset,
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  min-width: 480px;
+  font-family: "微软雅黑", Arial;
+  color: #333;
+  -webkit-text-size-adjust: none;
+  line-height: 1.42857143;
+  background-color: #fff;
+}
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}

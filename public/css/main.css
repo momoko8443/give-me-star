@@ -1,43 +1,34 @@
 body {
-    overflow-x: hidden;
-    font-family: "微软雅黑";
+  overflow-x: hidden;
+  font-family: "微软雅黑";
 }
-
 .clear {
-    clear: both;
+  clear: both;
 }
-
-.banner{
-    background-color: #77B6FF;
-    height: 250px;
-    margin-left:-10px;
-    margin-right:-10px
+.banner {
+  background-color: #77B6FF;
+  height: 250px;
+  margin-left: -10px;
+  margin-right: -10px;
 }
-
-.solgan{
-    color:#008080;
-    font-weight: bold;
-    position: absolute;
-    font-size:36px; 
-    top:100px;
-    right: 50px
+.solgan {
+  color: #008080;
+  font-weight: bold;
+  position: absolute;
+  font-size: 36px;
+  top: 100px;
+  right: 50px;
 }
-
 .logo {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    font-size: 48pt;
-    color:#008080;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 48pt;
+  color: #008080;
 }
-
 .col-center-block {
-    float: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  float: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-
-
-
