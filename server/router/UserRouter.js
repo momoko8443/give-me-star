@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
             }
         });
     }else{
-        res.redirect('/index2.html');
+        res.render('login');
     }
 });
 

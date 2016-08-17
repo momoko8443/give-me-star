@@ -5,7 +5,7 @@
     "app":{
         "client_id":"d7555f0b2d932fd46695",
         "client_secret":"b8bd615a953cbd2122a261e72688696dfa4b3ad2",
-        "redirect_uri":"http://gms.ittun.com/authorization/oauth",
+        "redirect_uri":"http://127.0.0.1:8080/authorization/oauth",
         "scope":"user public_repo",
         "allow_signup":true,
         "app_name":"give-me-star"

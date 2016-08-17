@@ -38,13 +38,13 @@ router.get('/oauth', function(req, res) {
         };
         idmService.getAccessToken(opt,function(err,token){
             if(err){
-                res.redirect('/index2.html?signin=failed');
+                res.render('login',{message:"Login Failed"});
             }else if(token){
 
                 logger.debug('Authorizate successfully');
                 logger.debug('Save Token with sesson id, session: ' + returnState + ' , token: ' + token);
                 sessionPool[returnState] = token;
-                res.redirect('/index2.html?signin=successful');
+                res.render('home');
             }
         });
     }else{

@@ -16,26 +16,16 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use(function (req, res, next) {
-    if (sessionPool[req.session.id]) {
-        if (req.url === '/' || req.url.search('/index2.html') !== -1) {
-            if (req.url.search('signin=successful') !== -1) {
-                next();
-            } else {
-                res.redirect('/index2.html?signin=successful');
-            }
-        } else {
-            next();
-        }
-    } else {
-        if (req.url.search('/authorization') !== -1) {
-            next();
-        } else {
-            res.redirect('/index2.html');
-        }
+app.set('view engine', 'ejs'); 
+app.get('/',function(req,res){
+    if (sessionPool[req.session.id]){
+        //已登录
+        res.render('home');
+    }else{
+        //未登录
+        res.render('login',{message:''});
     }
 });
-
 app.use('/authorization', authorizationRouter);
 app.use('/user', userRouter);
 
