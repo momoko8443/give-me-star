@@ -1,19 +1,47 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
-}
+@import 'reset';
+$profile-bg:#0C0A3E;
+$profile-text-color:#FFFFFF;
+$profile-user-info-text-color:#D9DCD6;
+$profile-github-number-text-color:#91A6FF;
+
 
 .profile-box {
     height: 100%;
-    background: #0C0A3E;
+    background: $profile-bg;
     padding: 0;
     margin: 0;
-    color: #FFFFFF;
+    color: $profile-text-color;
+
+    .user-info{
+        text-align:center;
+        img{
+            padding-top:1em;
+            border-radius: 50px;
+            height: 100px;
+            width:100px;
+        }
+        h3{
+            padding-top:1em;
+        }
+    }
+    .user-profile-item{
+        padding:5px;
+        padding-top:1em;
+        div:first-child{
+            padding-top:2px
+        }
+        p{
+            color:$profile-user-info-text-color;
+        }
+    }
+    .user-github-number{
+        padding:5px;
+        padding-top:2em;
+        span{
+            font-size:80px;
+            color:$profile-github-number-text-color;
+        }
+    }
 }
 
 .repo-box {

@@ -4,88 +4,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="bower_components/pure/pure-min.css">
         <link rel="stylesheet" href="css/font/iconfont.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="stylesheet/main.css">
         <link rel="stylesheet" href="css/layouts/email.css">
-        <style>
-            h1,h2,h3,h4,h5,h6,p{
-                margin:0;
-            }
-            .profile-box{
-                height: 100%;
-                background: #0C0A3E;
-                padding: 0;
-                margin: 0;
-                color:#FFFFFF;
-            }
-            
-            .repo-box{
-                background:  #342E37;
-                padding: 0;
-                margin: 0;
-                height:100%
-            }
-            
-            .detail-box{
-                /*background: #F8FFF2;*/
-                padding: 0;
-                margin: 0;
-                /*height: 100em;*/
-            }
-            .recommand-box{
-                background:#393D3F;
-                height: 100%;
-                padding: 0;
-                margin: 0;
-            }
-
-            .repo-item{
-                border-bottom:1px solid #cccccc;   
-                padding:1em;
-                background:#FFFFFF;
-            }
-            .repo-item-selected{
-                background: #CDEDF6;
-            }
-            .avatar{
-                width:64px;
-                height:64px;
-            }
-            .button-success {
-                color: white;
-                font-size: 85%;
-                border-radius: 4px;
-                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-                background: rgb(28, 184, 65); /* this is a green */
-            }
-        </style>
     </head>
     <body>
         <div class="pure-g">
             <div class="pure-u-3-24" style="height:100%">
                 <div class="profile-box" >
-                    <div style="text-align:center;">
-                        <img src="img/common/tilo-avatar.png" height="100px" width="100px" style="padding-top:1em;border-radius: 50px;">
-                        <h3 style="padding-top:1em">momoko8443</h3>
+                    <div class="user-info">
+                        <img src="img/common/tilo-avatar.png">
+                        <h3>momoko8443</h3>
                     </div>
-                    <div class="pure-g" style="padding:5px;padding-top:3em;">
-                        <div class="pure-u-1-6" style="padding-top:2px">
+                    <div class="pure-g user-profile-item">
+                        <div class="pure-u-1-6">
                             <i class="icon iconfont">&#xe60b;</i>
                         </div>
                         <div class="pure-u-5-6">
-                            <p style="color:#D9DCD6">Hewlett Packard Enterprise</p>
+                            <p>Hewlett Packard Enterprise</p>
                         </div>
                     </div>
-                    <div class="pure-g" style="padding:5px;padding-top:1em;">
-                        <div class="pure-u-1-6" style="padding-top:2px">
+                    <div class="pure-g user-profile-item">
+                        <div class="pure-u-1-6">
                             <i class="icon iconfont">&#xe602;</i>
                         </div>
                         <div class="pure-u-5-6">
-                            <p style="color:#D9DCD6">Zhangjiang，Pudong, Shanghai China</p>
+                            <p>Zhangjiang，Pudong, Shanghai China</p>
                         </div>
                     </div>
-                    <div class="pure-g" style="padding:5px;padding-top:2em;">
+                    <div class="pure-g user-github-number">
                         <div class="pure-u">
-                            <span style="font-size:80px;color:#91A6FF">365</span>
+                            <span>365</span>
                         </div>
                     </div>    
                     <div class="pure-g">
@@ -94,9 +42,9 @@
                             <span>days in github</span>
                         </div>
                     </div> 
-                    <div class="pure-g" style="padding:5px;padding-top:2em;">
+                    <div class="pure-g user-github-number">
                         <div class="pure-u">
-                            <span style="font-size:80px;color:#91A6FF">68</span>
+                            <span>68</span>
                         </div>
                     </div>    
                     <div class="pure-g">
@@ -105,9 +53,9 @@
                             <span>stars in</span>
                         </div>
                     </div>
-                    <div class="pure-g" style="padding:5px;padding-top:2em;">
+                    <div class="pure-g user-github-number">
                         <div class="pure-u">
-                            <span style="font-size:80px;color:#91A6FF">12</span>
+                            <span>12</span>
                         </div>
                     </div>    
                     <div class="pure-g">
