@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
             }
         });
     }else{
-        res.render('login');
+        res.render('login',{message:'Please login first'});
     }
 });
 

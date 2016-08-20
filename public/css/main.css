@@ -1,6 +1,19 @@
-.round {
-/*border: 5px solid #cccccc;*/
--moz-border-radius: 15px; 
--webkit-border-radius: 15px; 
-border-radius:15px; 
+.repo-avatar {
+    border-radius: 5px;
+    margin-right: 0.5em;
+}
+
+.repo-name,
+.repo-subject {
+    margin: 0;
+}
+
+.repo-name {
+    text-transform: uppercase;
+    color: #999;
+}
+
+.repo-desc {
+    font-size: 80%;
+    margin: 0.4em 0;
 }

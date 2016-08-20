@@ -1,0 +1,600 @@
+<html>
+    <head>
+        <title>Pure CSS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bower_components/pure/pure-min.css">
+        <link rel="stylesheet" href="css/font/iconfont.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/layouts/email.css">
+        <style>
+            h1,h2,h3,h4,h5,h6,p{
+                margin:0;
+            }
+            .profile-box{
+                height: 100%;
+                background: #0C0A3E;
+                padding: 0;
+                margin: 0;
+                color:#FFFFFF;
+            }
+            
+            .repo-box{
+                background:  #342E37;
+                padding: 0;
+                margin: 0;
+                height:100%
+            }
+            
+            .detail-box{
+                /*background: #F8FFF2;*/
+                padding: 0;
+                margin: 0;
+                /*height: 100em;*/
+            }
+            .recommand-box{
+                background:#393D3F;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .repo-item{
+                border-bottom:1px solid #cccccc;   
+                padding:1em;
+                background:#FFFFFF;
+            }
+            .repo-item-selected{
+                background: #CDEDF6;
+            }
+            .avatar{
+                width:64px;
+                height:64px;
+            }
+            .button-success {
+                color: white;
+                font-size: 85%;
+                border-radius: 4px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                background: rgb(28, 184, 65); /* this is a green */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pure-g">
+            <div class="pure-u-3-24" style="height:100%">
+                <div class="profile-box" >
+                    <div style="text-align:center;">
+                        <img src="img/common/tilo-avatar.png" height="100px" width="100px" style="padding-top:1em;border-radius: 50px;">
+                        <h3 style="padding-top:1em">momoko8443</h3>
+                    </div>
+                    <div class="pure-g" style="padding:5px;padding-top:3em;">
+                        <div class="pure-u-1-6" style="padding-top:2px">
+                            <i class="icon iconfont">&#xe60b;</i>
+                        </div>
+                        <div class="pure-u-5-6">
+                            <p style="color:#D9DCD6">Hewlett Packard Enterprise</p>
+                        </div>
+                    </div>
+                    <div class="pure-g" style="padding:5px;padding-top:1em;">
+                        <div class="pure-u-1-6" style="padding-top:2px">
+                            <i class="icon iconfont">&#xe602;</i>
+                        </div>
+                        <div class="pure-u-5-6">
+                            <p style="color:#D9DCD6">Zhangjiang，Pudong, Shanghai China</p>
+                        </div>
+                    </div>
+                    <div class="pure-g" style="padding:5px;padding-top:2em;">
+                        <div class="pure-u">
+                            <span style="font-size:80px;color:#91A6FF">365</span>
+                        </div>
+                    </div>    
+                    <div class="pure-g">
+                        <div class="pure-u-1-3"></div>
+                        <div class="pure-u-2-3">
+                            <span>days in github</span>
+                        </div>
+                    </div> 
+                    <div class="pure-g" style="padding:5px;padding-top:2em;">
+                        <div class="pure-u">
+                            <span style="font-size:80px;color:#91A6FF">68</span>
+                        </div>
+                    </div>    
+                    <div class="pure-g">
+                        <div class="pure-u-1-3"></div>
+                        <div class="pure-u-2-3">
+                            <span>stars in</span>
+                        </div>
+                    </div>
+                    <div class="pure-g" style="padding:5px;padding-top:2em;">
+                        <div class="pure-u">
+                            <span style="font-size:80px;color:#91A6FF">12</span>
+                        </div>
+                    </div>    
+                    <div class="pure-g">
+                        <div class="pure-u-1-3"></div>
+                        <div class="pure-u-2-3">
+                            <span>repositories totally</span>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div class="pure-u-6-24" style="overflow: auto;height:100%">
+                <div class="pure-g" style="background:#356BCE;">
+                    <div class="pure-u">
+                        <h3 style="color:#FFFFFF;padding:5px;">My Repositories</h3>
+                    </div>
+                </div>
+                <div class="repo-box">
+                    <div class="pure-g repo-item">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">Angularjs</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pure-g repo-item repo-item-selected">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">VUE.js</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="pure-button button-success">give me star</button>
+                    </div>
+
+                    <div class="pure-g repo-item">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">React Native</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pure-g repo-item">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">Angularjs</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pure-g repo-item repo-item-selected">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">VUE.js</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="pure-button button-success">give me star</button>
+                    </div>
+
+                    <div class="pure-g repo-item">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">React Native</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pure-g repo-item">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">Angularjs</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pure-g repo-item repo-item-selected">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">VUE.js</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="pure-button button-success">give me star</button>
+                    </div>
+
+                    <div class="pure-g repo-item">
+                        <!--<div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>-->
+                        <div class="pure-u-3-4">
+                            <!--<h5 class="repo-name">Tilo Mitra</h5>-->
+                            <h4 class="repo-subject">React Native</h4>
+                            <p class="repo-desc">
+                                Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                            </p>
+                        </div>
+                        <div class="pure-u-1-4">
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe601;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>55</span>
+                                </div>
+                            </div>    
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60e;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-2">
+                                    <i class="icon iconfont">&#xe60c;</i>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <span>12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pure-u-10-24" style="overflow: auto;height:100%;overflow:hidden">
+                <div class="detail-box">
+                    <div class="email-content">
+            <div class="email-content-header pure-g">
+                <div class="pure-u-1-2">
+                    <h1 class="email-content-title">Give Ukujs Star</h1>
+                    <p class="email-content-subtitle">
+                        From <a>momoko8443</a> at <span>3:56pm, April 3, 2012</span>
+                    </p>
+                </div>
+
+                <div class="email-content-controls pure-u-1-2">
+                    <button class="secondary-button pure-button">Watch</button>
+                    <button class="secondary-button pure-button">Fork</button>
+                    <button class="secondary-button pure-button">Star</button>
+                </div>
+            </div>
+
+            <div class="email-content-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p>
+                    Aliquam ac feugiat dolor. Proin mattis massa sit amet enim iaculis tincidunt. Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris. Curabitur ornare arcu quis mi blandit laoreet. Vivamus imperdiet fermentum mauris, ac posuere urna tempor at. Duis pellentesque justo ac sapien aliquet egestas. Morbi enim mi, porta eget ullamcorper at, pharetra id lorem.
+                </p>
+                <p>
+                    Donec sagittis dolor ut quam pharetra pretium varius in nibh. Suspendisse potenti. Donec imperdiet, velit vel adipiscing bibendum, leo eros tristique augue, eu rutrum lacus sapien vel quam. Nam orci arcu, luctus quis vestibulum ut, ullamcorper ut enim. Morbi semper erat quis orci aliquet condimentum. Nam interdum mauris sed massa dignissim rhoncus.
+                </p>
+                <p>
+                    Regards,<br>
+                    Tilo
+                </p>
+            </div>
+        </div>
+                    <div>
+                        <div class="pure-g" style="padding:10px;padding-top:30px;border-bottom:1px solid #cccccc">
+                            <div class="pure-u-1-8">
+                                <img class="repo-avatar" height="32" width="32" src="img/common/ericf-avatar.png">
+                            </div>
+                            <div class="pure-u-7-8">
+                                <h4>Aaron said </h4>
+                                <p>Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing.</p>
+                            </div>
+                        </div>
+                        <div class="pure-g" style="padding:10px;border-bottom:1px solid #cccccc">
+                            <div class="pure-u-1-8">
+                                <img class="repo-avatar" height="32" width="32" src="img/common/ynews-avatar.png">
+                            </div>
+                            <div class="pure-u-7-8">
+                                <h4>Kido said </h4>
+                                <p>Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.</p>
+                            </div>
+                        </div>
+                        <div class="pure-g" style="padding:10px;border-bottom:1px solid #cccccc">
+                            <div class="pure-u-1-8">
+                                <img class="repo-avatar" height="32" width="32" src="img/common/tilo-avatar.png">
+                            </div>
+                            <div class="pure-u-7-8">
+                                <h4>Jobs said </h4>
+                                <p>Ukulelejs is amazing, I love it.Ukulelejs is amazin....</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="pure-u-5-24" style="height:100%">
+                <div class="recommand-box">
+                    <div class="pure-g" style="background:#124E78;">
+                        <div class="pure-u">
+                            <h3 style="color:#FFFFFF;padding:5px">Top 20</h3>
+                        </div>
+                    </div>
+                    <div class="pure-g repo-item repo-item-selected">
+                        <div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>
+                        <div class="pure-u-3-4">
+                            <h5 class="repo-name">momoko8443</h5>
+                            <h4 class="repo-subject">ukulelejs</h4>
+                            <p class="repo-desc">
+                                Ukulelejs is a two-way binding js library, it's light, easy and flexible.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-g repo-item">
+                        <div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/andrew-avatar.png">
+                        </div>
+                        <div class="pure-u-3-4">
+                            <h5 class="repo-name">momoko8443</h5>
+                            <h4 class="repo-subject">give-me-star</h4>
+                            <p class="repo-desc">
+                                No description or website provided.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-g repo-item">
+                        <div class="pure-u-1-4">
+                            <img class="repo-avatar" height="64" width="64" src="img/common/reid-avatar.png">
+                        </div>
+                        <div class="pure-u-3-4">
+                            <h5 class="repo-name">kubernetes</h5>
+                            <h4 class="repo-subject">kubernetes</h4>
+                            <p class="repo-desc">
+                                Production-Grade Container Scheduling and Management http://kubernetes.io.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

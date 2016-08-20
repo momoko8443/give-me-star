@@ -16,6 +16,12 @@ module.exports = {
                 var userVM = new UserVM();
                 userVM.name = user.name;
                 userVM.avatar_url = user.avatar_url;
+                userVM.company = user.company;
+                userVM.blog = user.blog;
+                userVM.location = user.location;
+                userVM.email = user.email;
+                userVM.created_at = user.created_at;
+                userVM.updated_at = user.updated_at;
                 userVM.repos = [];
                 repoService.getReposByUser(user.name,token,function(err,repos){
                     if(err){

@@ -40,7 +40,6 @@ router.get('/oauth', function(req, res) {
             if(err){
                 res.render('login',{message:"Login Failed"});
             }else if(token){
-
                 logger.debug('Authorizate successfully');
                 logger.debug('Save Token with sesson id, session: ' + returnState + ' , token: ' + token);
                 sessionPool[returnState] = token;
