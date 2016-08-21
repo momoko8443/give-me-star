@@ -40,31 +40,96 @@ p {
   background: #342E37;
   padding: 0;
   margin: 0;
-  height: 100%; }
+  position: relative; }
+  .repo-box .repo-header {
+    height: 30px;
+    background: #356BCE; }
+    .repo-box .repo-header h3 {
+      color: #FFFFFF;
+      padding: 5px; }
+  .repo-box .repo-list {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; }
+    .repo-box .repo-list .repo-item {
+      border-bottom: 1px solid #cccccc;
+      padding: 1em;
+      background: #FFFFFF; }
+      .repo-box .repo-list .repo-item .repo-subject {
+        margin: 0; }
+      .repo-box .repo-list .repo-item .repo-desc {
+        font-size: 80%;
+        margin: 0.4em 0; }
+    .repo-box .repo-list .repo-item-selected {
+      background: #CDEDF6; }
 
 .detail-box {
-  /*background: #F8FFF2;*/
   padding: 0;
-  margin: 0;
-  /*height: 100em;*/ }
+  margin: 0; }
+  .detail-box .detail-content {
+    padding: 1em 2em; }
+    .detail-box .detail-content .detail-content-header {
+      border-bottom: 1px solid #ddd; }
+      .detail-box .detail-content .detail-content-header .detail-content-title {
+        margin: 0.5em 0 0; }
+      .detail-box .detail-content .detail-content-header .detail-content-subtitle {
+        font-size: 1em;
+        margin: 0;
+        font-weight: normal; }
+        .detail-box .detail-content .detail-content-header .detail-content-subtitle span {
+          color: #999; }
+      .detail-box .detail-content .detail-content-header .detail-content-controls {
+        margin-top: 2em;
+        text-align: right; }
+        .detail-box .detail-content .detail-content-header .detail-content-controls .secondary-button {
+          margin-bottom: 0.3em; }
+    .detail-box .detail-content .reply-list .reply-item {
+      padding: 10px;
+      border-bottom: 1px solid #cccccc; }
+      .detail-box .detail-content .reply-list .reply-item .reply-avatar {
+        height: 32px;
+        width: 32px;
+        border-radius: 5px; }
 
 .recommand-box {
   background: #393D3F;
   height: 100%;
   padding: 0;
-  margin: 0; }
-
-.repo-item {
-  border-bottom: 1px solid #cccccc;
-  padding: 1em;
-  background: #FFFFFF; }
-
-.repo-item-selected {
-  background: #CDEDF6; }
-
-.avatar {
-  width: 64px;
-  height: 64px; }
+  margin: 0;
+  position: relative; }
+  .recommand-box .recommand-header {
+    height: 30px;
+    background: #124E78; }
+    .recommand-box .recommand-header h3 {
+      color: #FFFFFF;
+      padding: 5px; }
+  .recommand-box .recommand-list {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; }
+    .recommand-box .recommand-list .recommand-item {
+      border-bottom: 1px solid #cccccc;
+      padding: 1em;
+      background: #FFFFFF; }
+      .recommand-box .recommand-list .recommand-item .recommand-avatar {
+        border-radius: 5px;
+        margin-right: 0.5em;
+        height: 64px;
+        width: 64px; }
+      .recommand-box .recommand-list .recommand-item .recommand-name {
+        text-transform: uppercase;
+        color: #999;
+        margin: 0; }
+      .recommand-box .recommand-list .recommand-item .recommand-subject {
+        margin: 0; }
+    .recommand-box .recommand-list .recommand-item-selected {
+      background: #CDEDF6; }
 
 .button-success {
   color: white;
@@ -73,21 +138,5 @@ p {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   background: #1cb841;
   /* this is a green */ }
-
-.repo-avatar {
-  border-radius: 5px;
-  margin-right: 0.5em; }
-
-.repo-name,
-.repo-subject {
-  margin: 0; }
-
-.repo-name {
-  text-transform: uppercase;
-  color: #999; }
-
-.repo-desc {
-  font-size: 80%;
-  margin: 0.4em 0; }
 
 /*# sourceMappingURL=main.css.map */

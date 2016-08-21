@@ -4,6 +4,46 @@ $profile-text-color:#FFFFFF;
 $profile-user-info-text-color:#D9DCD6;
 $profile-github-number-text-color:#91A6FF;
 
+$repo-bg:#342E37;
+$repo-header-bg:#356BCE;
+$repo-header-text-color:#FFFFFF;
+$repo-header-height:30px;
+
+$recommand-bg:#393D3F;
+$recommand-header-bg:#124E78;
+$recommand-header-text-color:#FFFFFF;
+$recommand-header-height:30px;
+
+@mixin list-item {
+    border-bottom: 1px solid #cccccc;
+    padding: 1em;
+    background: #FFFFFF;
+}
+
+@mixin list-item-selected {
+    background: #CDEDF6;
+}
+
+@mixin list-item-avatar {
+    border-radius: 5px;
+    margin-right: 0.5em;
+    height: 64px;
+    width: 64px;
+}
+
+@mixin list-item-name{
+    text-transform: uppercase;
+    color: #999;
+    margin: 0;
+}
+@mixin list-item-subject{
+    margin: 0;
+}
+@mixin list-item-desc{
+    font-size: 80%;
+    margin: 0.4em 0;
+}
+
 
 .profile-box {
     height: 100%;
@@ -45,39 +85,123 @@ $profile-github-number-text-color:#91A6FF;
 }
 
 .repo-box {
-    background: #342E37;
+    background: $repo-bg;
     padding: 0;
     margin: 0;
-    height: 100%
+    position: relative;
+    .repo-header{
+        height: $repo-header-height;
+        background:$repo-header-bg;
+        h3{
+            color:$repo-header-text-color;
+            padding:5px;
+        }
+    }
+    .repo-list{
+        position: absolute;
+        top: $repo-header-height;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+
+        .repo-item{
+            @include list-item;
+            .repo-subject{
+                @include list-item-subject;
+            }
+            .repo-desc{
+                @include list-item-desc;
+            }
+        }
+        .repo-item-selected{
+            @include list-item-selected;
+        }
+    }
 }
 
 .detail-box {
-    /*background: #F8FFF2;*/
     padding: 0;
     margin: 0;
-    /*height: 100em;*/
+    .detail-content{
+        padding: 1em 2em;
+        .detail-content-header{
+            border-bottom: 1px solid #ddd;
+            .detail-content-title{
+                margin: 0.5em 0 0;
+            }
+            .detail-content-subtitle{
+                font-size: 1em;
+                margin: 0;
+                font-weight: normal;
+                span{
+                    color: #999;
+                }
+            }
+            .detail-content-controls{
+                margin-top: 2em;
+                text-align: right;
+                .secondary-button {
+                    margin-bottom: 0.3em;
+                }
+            }
+        }
+        .reply-list{
+            .reply-item{
+                padding:10px;
+                border-bottom:1px solid #cccccc;
+                .reply-avatar{
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
 }
 
 .recommand-box {
-    background: #393D3F;
+    background: $recommand-bg;
     height: 100%;
     padding: 0;
     margin: 0;
-}
+    position: relative;
+    .recommand-header{
+        height: $recommand-header-height;
+        background:$recommand-header-bg;
+        h3{
+            color:$recommand-header-text-color;
+            padding:5px
+        }
+    }
+    .recommand-list{
+        position: absolute;
+        top:$recommand-header-height;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
 
-.repo-item {
-    border-bottom: 1px solid #cccccc;
-    padding: 1em;
-    background: #FFFFFF;
-}
+        .recommand-item{
+            @include list-item;
+            .recommand-avatar{
+                @include list-item-avatar;
+            }
+            .recommand-name{
+                @include list-item-name;
+            }
+            .recommand-subject{
+                @include list-item-subject;
+            }
+        }
 
-.repo-item-selected {
-    background: #CDEDF6;
-}
+        .recommand-item-selected{
+            @include list-item-selected;
+        }
 
-.avatar {
-    width: 64px;
-    height: 64px;
+        
+    }
+
 }
 
 .button-success {
@@ -87,24 +211,4 @@ $profile-github-number-text-color:#91A6FF;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     background: rgb(28, 184, 65);
     /* this is a green */
-}
-
-.repo-avatar {
-    border-radius: 5px;
-    margin-right: 0.5em;
-}
-
-.repo-name,
-.repo-subject {
-    margin: 0;
-}
-
-.repo-name {
-    text-transform: uppercase;
-    color: #999;
-}
-
-.repo-desc {
-    font-size: 80%;
-    margin: 0.4em 0;
 }
