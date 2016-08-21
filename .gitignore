@@ -4,3 +4,4 @@ server/log/*.log
 server/log/*.log.*
 .idea
 .sass-cache
+public/bower_components

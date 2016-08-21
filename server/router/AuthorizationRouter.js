@@ -43,7 +43,7 @@ router.get('/oauth', function(req, res) {
                 logger.debug('Authorizate successfully');
                 logger.debug('Save Token with sesson id, session: ' + returnState + ' , token: ' + token);
                 sessionPool[returnState] = token;
-                res.render('home');
+                res.render('main');
             }
         });
     }else{

@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.get('/',function(req,res){
     if (sessionPool[req.session.id]){
         //已登录
-        res.render('home');
+        res.render('main');
     }else{
         //未登录
         res.render('login',{message:''});

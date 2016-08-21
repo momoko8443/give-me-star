@@ -8,6 +8,7 @@
   "dependencies": {
     "ukulelejs": "typescript",
     "bootstrap": "^3.3.6",
-    "pure": "^0.6.0"
+    "pure": "^0.6.0",
+    "moment": "^2.14.1"
   }
 }

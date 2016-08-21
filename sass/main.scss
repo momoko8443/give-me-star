@@ -54,11 +54,12 @@ $recommand-header-height:30px;
 
     .user-info{
         text-align:center;
+        padding-top: 1em;
         img{
-            padding-top:1em;
+            // padding-top:1em;
             border-radius: 50px;
             height: 100px;
-            width:100px;
+            width: 100px;
         }
         h3{
             padding-top:1em;

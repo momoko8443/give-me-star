@@ -14,9 +14,9 @@ p {
   margin: 0;
   color: #FFFFFF; }
   .profile-box .user-info {
-    text-align: center; }
+    text-align: center;
+    padding-top: 1em; }
     .profile-box .user-info img {
-      padding-top: 1em;
       border-radius: 50px;
       height: 100px;
       width: 100px; }
