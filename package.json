@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js 8080",
-    "sass":"sass --watch ./sass/main.scss:./public/stylesheet/main.css"
-
+    "sass": "sass --watch ./sass/main.scss:./public/stylesheet/main.css"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +15,7 @@
     "ejs": "^2.5.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "got": "^6.3.0",
     "log4js": "^0.6.37",
     "request": "^2.72.0"
   },
