@@ -1,20 +1,21 @@
 var config = require('../configuration/Config');
-var request = require('request');
+var got = require('got');
 var logger = require('../util/Logger');
-
+const tunnel = require('tunnel');
 var oauth = config.oauth;
 
 module.exports = {
     getAccessToken:function(opt,callback){
-        request.post({url:oauth.access_token_url,formData:opt,json:true},
-        function(error,response,body){
-            if(error){
+        got.post(oauth.access_token_url,{
+                                            body:opt,
+                                            json:true
+                                        })
+            .then(function(result){
+                callback && callback(undefined,result.body.access_token);
+            })
+            .catch(function(error){
                 logger.error(error);
                 callback && callback(error);
-            }
-            else{
-                callback && callback(undefined,body.access_token);
-            }
-        });
+            });
     }
 }

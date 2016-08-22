@@ -17,7 +17,8 @@
     "express-session": "^1.13.0",
     "got": "^6.3.0",
     "log4js": "^0.6.37",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "tunnel": "0.0.4"
   },
   "devDependencies": {
     "gulp": "^3.9.1"

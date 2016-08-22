@@ -1,25 +1,26 @@
 var config = require('../configuration/Config');
-var request = require('request');
+var got = require('got');
 var logger = require('../util/Logger');
 var api = config.api;
 var app = config.app;
 
 module.exports = {
-    getReposByUser:function(user,token,callback){
+    getReposByUser: function (user, token, callback) {
         var url = api.repos.format(user);
-        request({
-                    url:url,
-                    json:true,
-                    headers:{'User-Agent':app.app_name,Authorization:'token ' + token}
-            },function(error,response,body){
-                if(error){
-                    logger.error(error);
-                    callback && callback(error);
-                }else{
-                    logger.debug('Get Repos by user', body);
-                    callback && callback(undefined, body);
-                }    
-            }
-        );
+        got.get(url, {
+            headers: {
+                'User-Agent': app.app_name,
+                'Authorization': 'token ' + token
+            },
+            json: true
+        })
+            .then(function (result) {
+                logger.debug('Get Repos by user', result.body);
+                callback && callback(undefined, result.body);
+            })
+            .catch(function (error) {
+                logger.error(error);
+                callback && callback(error);
+            });
     }
 }

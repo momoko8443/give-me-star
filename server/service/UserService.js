@@ -1,5 +1,5 @@
 var config = require('../configuration/Config');
-var request = require('request');
+var got = require('got');
 var logger = require('../util/Logger');
 var repoService = require('./RepoService');
 var UserVM = require('../view_model/UserVM');
@@ -46,19 +46,14 @@ module.exports = {
     },
 
     getUserInfo: function (token, callback) {
-        request({
-            url: api.user,
-            json: true,
-            headers: { 'User-Agent': app.app_name, Authorization: 'token ' + token }
-        }, function (error, response, body) {
-            if (error) {
-                logger.error(error);
-                callback && callback(error);
-            } else {
-                logger.debug('Get user info', body);
-                callback && callback(undefined, body);
-            }
-        }
-        );
+        got.get(api.user,{headers: { 'User-Agent': app.app_name, 'Authorization': 'token ' + token },json: true})
+        .then(function(result){
+            logger.debug('Get user info', result.body);
+            callback && callback(undefined, result.body);
+        })
+        .catch(function(error){
+            logger.error(error);
+            callback && callback(error);
+        });
     }
 }

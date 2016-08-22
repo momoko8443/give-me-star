@@ -1,5 +1,4 @@
 var config = require('../configuration/Config');
-var request = require('request');
 var express = require('express');
 var querystring = require('querystring');
 var logger = require('../util/Logger');
