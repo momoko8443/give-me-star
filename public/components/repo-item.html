@@ -1,0 +1,44 @@
+<uku-component>
+    <template>
+<div class="pure-g repo-item">
+    <div class="pure-u-3-4">
+        <h4 class="repo-subject" uku-text="cc.repo.name">Angularjs</h4>
+        <p class="repo-desc" uku-text="cc.repo.description"></p>
+        <button class="pure-button button-success visible">give me star</button>
+    </div>
+    <div class="pure-u-1-4">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <i class="icon iconfont">&#xe601;</i>
+            </div>
+            <div class="pure-u-1-2">
+                <span uku-text="cc.repo.stargazers_count"></span>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <i class="icon iconfont">&#xe60c;</i>
+            </div>
+            <div class="pure-u-1-2">
+                <span uku-text="cc.repo.forks"></span>
+            </div>
+        </div>
+    </div>
+</div>
+    </template>
+    <script>
+        (function() {
+            return function(uku) {
+                this.repo = {};
+                Object.defineProperty(this, "repositroy", {
+                    set: function(value) {
+                        if (value) {
+                            this.repo = value;
+                            uku.refresh();
+                        }
+                    }
+                });
+            };
+        })();
+    </script>
+</uku-component>

@@ -31,13 +31,14 @@ p {
       color: #D9DCD6; }
   .profile-box .user-github-number {
     padding: 5px;
-    padding-top: 2em; }
+    padding-top: 1em; }
     .profile-box .user-github-number span {
-      font-size: 80px;
+      font-size: 50px;
       color: #91A6FF; }
 
 .repo-box {
   background: #342E37;
+  height: 100%;
   padding: 0;
   margin: 0;
   position: relative; }
@@ -63,8 +64,19 @@ p {
       .repo-box .repo-list .repo-item .repo-desc {
         font-size: 80%;
         margin: 0.4em 0; }
-    .repo-box .repo-list .repo-item-selected {
-      background: #CDEDF6; }
+      .repo-box .repo-list .repo-item .visible {
+        display: none; }
+      .repo-box .repo-list .repo-item:hover {
+        background: #CDEDF6; }
+        .repo-box .repo-list .repo-item:hover .visible {
+          display: block; }
+      .repo-box .repo-list .repo-item .button-success {
+        color: white;
+        font-size: 85%;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        background: #1cb841;
+        /* this is a green */ }
 
 .detail-box {
   padding: 0;
@@ -130,13 +142,5 @@ p {
         margin: 0; }
     .recommand-box .recommand-list .recommand-item-selected {
       background: #CDEDF6; }
-
-.button-success {
-  color: white;
-  font-size: 85%;
-  border-radius: 4px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  background: #1cb841;
-  /* this is a green */ }
 
 /*# sourceMappingURL=main.css.map */

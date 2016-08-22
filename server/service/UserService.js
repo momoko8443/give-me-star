@@ -28,12 +28,14 @@ module.exports = {
                         callback && callback(err);
                     } else {
                         for (var i = 0; i < repos.length; i++) {
-                            if (repos[i].fork === false) {
+                            var repo = repos[i];
+                            if (repo.fork === false && repo.private === false) {
                                 var repoVM = new RepoVM();
-                                repoVM.name = repos[i].name;
-                                repoVM.wawatchers = repos[i].wawatchers;
-                                repoVM.forks = repos[i].forks;
-                                repoVM.stars = repos[i].stargazers_count;
+                                repoVM.name = repo.name;
+                                repoVM.description = repo.description;
+                                repoVM.stargazers_count = repo.stargazers_count;
+                                repoVM.watchers = repo.watchers;
+                                repoVM.forks = repo.forks;
                                 userVM.repos.push(repoVM);
                             }
 

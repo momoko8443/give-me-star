@@ -1,0 +1,29 @@
+<uku-component>
+    <template>
+<div>
+    <div class="pure-g repo-header">
+        <div class="pure-u">
+            <h3>My Repositories</h3>
+        </div>
+    </div>
+    <div class="repo-list">
+        <repo-item uku-repeat="repo in cc.repos" uku-repositroy="repo"></repo-item>
+    </div>      
+</div>
+    </template>
+    <script>
+        (function() {
+            return function(uku) {
+                this.repos = {};
+                Object.defineProperty(this, "repolist", {
+                    set: function(value) {
+                        if (value && value !== this.repos) {
+                            this.repos = value;
+                            uku.refresh();
+                        }
+                    }
+                });
+            };
+        })();
+    </script>
+</uku-component>

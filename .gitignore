@@ -5,3 +5,4 @@ server/log/*.log.*
 .idea
 .sass-cache
 public/bower_components
+npm-debug.log
