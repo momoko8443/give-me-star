@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js 8080",
-    "sass": "sass --watch ./sass/main.scss:./public/stylesheet/main.css"
+    "sass": "sass --watch ./sass/main.scss:./public/stylesheet/main.css",
+    "test.server": "mocha ./test/server/**/*.spec.js"
   },
   "keywords": [],
   "author": "",
@@ -17,9 +18,14 @@
     "express-session": "^1.13.0",
     "got": "^6.3.0",
     "log4js": "^0.6.37",
+    "mysql": "^2.11.1",
     "request": "^2.72.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "karma": "^1.2.0",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "mocha": "^3.0.2"
   }
 }
