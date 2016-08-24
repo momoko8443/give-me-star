@@ -36,16 +36,16 @@ router.get('/oauth', function(req, res) {
             code:code,
             state:returnState
         };
-        idmService.getAccessToken(opt,function(err,token){
-            if(err){
-                res.render('login',{message:"Login Failed"});
-            }else if(token){
+        idmService.getAccessToken(opt)
+            .then(function(token){
                 logger.debug('Authorizate successfully');
                 logger.debug('Save Token with sesson id, session: ' + returnState + ' , token: ' + token);
                 sessionPool[returnState] = token;
                 res.render('main');
-            }
-        });
+            })
+            .error(function(error){  
+                res.render('login',{message:"Login Failed"});
+            });
     }else{
         res.sendStatus(500);
     }

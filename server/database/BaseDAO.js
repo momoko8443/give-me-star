@@ -99,20 +99,20 @@ function BaseDAO(tableName) {
                 return columns.join(',');
             });
             var params=[];
-                sql = sql.replace(/\$conditions/g,function(txt){
-                    if(Object.prototype.toString.call(conditions)=="[object Array]"){
-                        var temArr = [];
-                        for(var i=0;i<conditions.length;i++){
-                            var condition = conditions[i];
-                            var expression = condition.key + condition.opt + "?";
-                            temArr.push(expression);
-                            params.push(condition.value);
-                        }
-                        return temArr.join(' and ');
-                    }else{//默认为完整的字符串条件  id=1 or time=1 limited 1,3 为特殊处理
-                        return conditions;
+            sql = sql.replace(/\$conditions/g,function(txt){
+                if(Object.prototype.toString.call(conditions)=="[object Array]"){
+                    var temArr = [];
+                    for(var i=0;i<conditions.length;i++){
+                        var condition = conditions[i];
+                        var expression = condition.key + condition.opt + "?";
+                        temArr.push(expression);
+                        params.push(condition.value);
                     }
-                });
+                    return temArr.join(' and ');
+                }else{//默认为完整的字符串条件  id=1 or time=1 limited 1,3 为特殊处理
+                    return conditions;
+                }
+            });
             var query = connection.query(sql, [self.table,params], function (err, rows) {
                 self.dealWithCallback(err, rows, true, connection,query,callback);
             });

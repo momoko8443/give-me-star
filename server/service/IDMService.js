@@ -1,20 +1,25 @@
 var config = require('../configuration/Config');
 var request = require('request');
 var logger = require('../util/Logger');
-
+var Promise = require('bluebird');
 var oauth = config.oauth;
 
-module.exports = {
-    getAccessToken:function(opt,callback){
-        request.post({url:oauth.access_token_url,formData:opt,json:true},
-        function(error,response,body){
-            if(error){
-                logger.error(error);
-                callback && callback(error);
-            }
-            else{
-                callback && callback(undefined,body.access_token);
-            }
+function IDMService(){
+    this.getAccessToken = function(opt){
+        return new Promise(function(resolve,reject){
+            request.post({url:oauth.access_token_url,formData:opt,json:true},
+            function(error,response,body){
+                if(error){
+                    logger.error(error);
+                    reject(error);
+                }
+                else{
+                    resolve(body.access_token);
+                }
+            });
         });
-    }
+        
+    };
 }
+var idmService = new IDMService();
+module.exports = idmService;

@@ -8,5 +8,7 @@ function UserVM(){
     this.created_at = "";
     this.updated_at = "";
     this.repos = [];
+    this.star_money = 0;
+    this.pushed_repos = "";
 }
 module.exports = UserVM;
