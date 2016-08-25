@@ -1,0 +1,43 @@
+<uku-component>
+    <template>
+        <div>
+            <form class="pure-form pure-form-stacked" style="padding:1em">
+                <fieldset>
+                    <div class="pure-control-group">
+                        <input id="title" type="text" placeholder="Title" class="pure-input-1">
+                    </div>
+                    <div class="pure-control-group">
+                        <textarea uku-text="cc.post"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="pure-g" style="padding:1em">
+                <div class="pure-u-1-4">
+                   
+                </div>
+                <div class="pure-u-1-4">
+                    
+                </div>
+            </div>
+            <div style="padding:1em;float:right">
+                 <button class="pure-button pure-button-primary">Draft</button>
+                 <button class="pure-button pure-button-primary">Publish</button>
+            </div>
+        </div>
+    </template>
+    <script>
+        (function(Editor) {
+            return function(uku) {
+                this.post = "";
+                var simplemde = new Editor();
+                Object.defineProperty(this, "post_md", {
+                    set: function(value) {
+                        if (value) {
+                            this.post = value;
+                        }
+                    }
+                });
+            };
+        })(SimpleMDE);
+    </script>
+</uku-component>

@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="/bower_components/pure/pure-min.css">
     <link rel="stylesheet" href="/css/font/iconfont.css">
     <link rel="stylesheet" href="/stylesheet/main.css">
+    <link rel="stylesheet" href="/bower_components/simplemde/dist/simplemde.min.css">
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css">
+    <script src="/bower_components/simplemde/dist/simplemde.min.js"></script>
     <script src="/bower_components/ukulelejs/dist/uku.js"></script>
     <script src="/bower_components/moment/min/moment.min.js"></script>
 </head>
@@ -13,75 +16,9 @@
     <div class="pure-g">
         <profile-panel class="pure-u-4-24 profile-box" uku-profile="homeCtrl.user"></profile-panel>
 
-        <repo-panel class="pure-u-5-24 repo-box" uku-repolist="homeCtrl.user.repos"></repo-panel>
-
-        <div class="pure-u-10-24 detail-box">
-            <div class="detail-content">
-                <div class="detail-content-header pure-g">
-                    <div class="pure-u-1-2">
-                        <h1 class="detail-content-title">Give Ukujs Star</h1>
-                        <p class="detail-content-subtitle">
-                            From <a>momoko8443</a> at <span>3:56pm, April 3, 2012</span>
-                        </p>
-                    </div>
-
-                    <div class="detail-content-controls pure-u-1-2">
-                        <button class="secondary-button pure-button">Watch</button>
-                        <button class="secondary-button pure-button">Fork</button>
-                        <button class="secondary-button pure-button">Star</button>
-                    </div>
-                </div>
-
-                <div class="detail-content-body">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p>
-                        Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <p>
-                        Aliquam ac feugiat dolor. Proin mattis massa sit amet enim iaculis tincidunt. Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris. Curabitur ornare arcu quis mi blandit laoreet. Vivamus imperdiet fermentum mauris, ac
-                        posuere urna tempor at. Duis pellentesque justo ac sapien aliquet egestas. Morbi enim mi, porta eget ullamcorper at, pharetra id lorem.
-                    </p>
-                    <p>
-                        Donec sagittis dolor ut quam pharetra pretium varius in nibh. Suspendisse potenti. Donec imperdiet, velit vel adipiscing bibendum, leo eros tristique augue, eu rutrum lacus sapien vel quam. Nam orci arcu, luctus quis vestibulum ut, ullamcorper ut enim.
-                        Morbi semper erat quis orci aliquet condimentum. Nam interdum mauris sed massa dignissim rhoncus.
-                    </p>
-                    <p>
-                        Regards,<br> Tilo
-                    </p>
-                </div>
-                <div class="reply-list">
-                    <div class="pure-g reply-item">
-                        <div class="pure-u-1-8">
-                            <img class="reply-avatar" src="/img/common/ericf-avatar.png">
-                        </div>
-                        <div class="pure-u-7-8">
-                            <h4>Aaron said </h4>
-                            <p>Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing.</p>
-                        </div>
-                    </div>
-                    <div class="pure-g reply-item">
-                        <div class="pure-u-1-8">
-                            <img class="reply-avatar" src="/img/common/ynews-avatar.png">
-                        </div>
-                        <div class="pure-u-7-8">
-                            <h4>Kido said </h4>
-                            <p>Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.Ukulelejs is amazing, I love it.</p>
-                        </div>
-                    </div>
-                    <div class="pure-g reply-item">
-                        <div class="pure-u-1-8">
-                            <img class="reply-avatar" src="/img/common/tilo-avatar.png">
-                        </div>
-                        <div class="pure-u-7-8">
-                            <h4>Jobs said </h4>
-                            <p>Ukulelejs is amazing, I love it.Ukulelejs is amazin....</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <repo-panel class="pure-u-5-24 repo-box" id="repoPanel" uku-repolist="homeCtrl.user.repos"></repo-panel>
+        <post-panel class="pure-u-10-24 detail-box" id="postPanel" style="display:none"></post-panel>
+        <detail-panel class="pure-u-10-24 detail-box" id="detailPanel" ></detail-panel>
         <div class="pure-u-5-24 recommand-box">
             <div class="pure-g recommand-header">
                 <div class="pure-u">
@@ -137,6 +74,8 @@
         uku.registerComponent('profile-panel','/components/profile-panel.html',true);
         uku.registerComponent('repo-panel','/components/repo-panel.html',true);
         uku.registerComponent('repo-item','/components/repo-item.html',true);
+        uku.registerComponent('post-panel','/components/post-panel.html',true);
+        uku.registerComponent('detail-panel','/components/detail-panel.html',true);
         uku.registerController('homeCtrl',homeCtrl);
         uku.addListener(Ukulele.INITIALIZED,function(){
             homeCtrl.userInfo();
@@ -146,6 +85,7 @@
         function HomeController(uku){
             var self = this;
             this.user = undefined;
+            
             //this.repos = undefined;
             this.userInfo = function(){
                 fetch('/user',{credentials: 'same-origin'}).then(function(res){
@@ -166,6 +106,10 @@
                             self.user.count_repos = data.repos.length;
                             uku.refresh();
                             console.log(data);
+                            // var dom = document.getElementById('repoPanel');
+                            // dom.addEventListener('giveMeStarEvent',function(e){
+                            //     alert(e.repo.name);
+                            // });
                         });
                     } 
                 },function(err){

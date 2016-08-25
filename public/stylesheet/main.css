@@ -128,7 +128,8 @@ p {
     .recommand-box .recommand-list .recommand-item {
       border-bottom: 1px solid #cccccc;
       padding: 1em;
-      background: #FFFFFF; }
+      background: #FFFFFF;
+      border-left: 8px solid #f7b801; }
       .recommand-box .recommand-list .recommand-item .recommand-avatar {
         border-radius: 5px;
         margin-right: 0.5em;

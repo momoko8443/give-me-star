@@ -200,6 +200,7 @@ $recommand-header-height:30px;
 
         .recommand-item{
             @include list-item;
+            border-left: 8px solid #f7b801;
             .recommand-avatar{
                 @include list-item-avatar;
             }

@@ -2,9 +2,9 @@
     <template>
 <div class="pure-g repo-item">
     <div class="pure-u-3-4">
-        <h4 class="repo-subject" uku-text="cc.repo.name">Angularjs</h4>
+        <h4 class="repo-subject" uku-text="cc.repo.name"></h4>
         <p class="repo-desc" uku-text="cc.repo.description"></p>
-        <button class="pure-button button-success visible">give me star</button>
+        <button class="pure-button button-success visible" uku-onclick="cc.gmsButtonClick()">give me star</button>
     </div>
     <div class="pure-u-1-4">
         <div class="pure-g">
@@ -30,6 +30,10 @@
         (function() {
             return function(uku) {
                 this.repo = {};
+
+                this.gmsButtonClick = function(){
+                    this.fire("giveMeStarEvent",{'repo':this.repo},true);
+                };
                 Object.defineProperty(this, "repositroy", {
                     set: function(value) {
                         if (value) {
