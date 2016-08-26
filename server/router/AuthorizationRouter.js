@@ -3,7 +3,7 @@ var request = require('request');
 var express = require('express');
 var querystring = require('querystring');
 var logger = require('../util/Logger');
-var idmService = require('../service/IDMService');
+var idmService = require('../service/github/IDMService');
 var sessionPool = require('../model/SessionTokenPool');
 
 var router = express.Router();

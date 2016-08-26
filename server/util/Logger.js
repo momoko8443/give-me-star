@@ -11,5 +11,5 @@ log4js.configure({
     ]
 });
 var logger = log4js.getLogger('gms');
-logger.setLevel('DEBUG');
+logger.setLevel('ERROR');
 module.exports = logger;

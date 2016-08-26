@@ -21,55 +21,7 @@
             <detail-panel class="detail-box" id="detailPanel" ></detail-panel>
             <post-panel class="detail-box" id="postPanel" style="display:none"></post-panel>
         </div>
-        
-        
-        <div class="pure-u-5-24 recommand-box">
-            <div class="pure-g recommand-header">
-                <div class="pure-u">
-                    <h3>Top 20</h3>
-                </div>
-            </div>
-            <div class="recommand-list">
-                <div class="pure-g recommand-item recommand-item-selected">
-                    <div class="pure-u-1-4">
-                        <img class="recommand-avatar" src="/img/common/andrew-avatar.png">
-                    </div>
-                    <div class="pure-u-3-4">
-                        <h5 class="recommand-name">momoko8443</h5>
-                        <h4 class="recommand-subject">ukulelejs</h4>
-                        <p class="recommand-desc">
-                            Ukulelejs is a two-way binding js library, it's light, easy and flexible.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="pure-g recommand-item">
-                    <div class="pure-u-1-4">
-                        <img class="recommand-avatar" src="/img/common/andrew-avatar.png">
-                    </div>
-                    <div class="pure-u-3-4">
-                        <h5 class="recommand-name">momoko8443</h5>
-                        <h4 class="recommand-subject">give-me-star</h4>
-                        <p class="recommand-desc">
-                            No description or website provided.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="pure-g recommand-item">
-                    <div class="pure-u-1-4">
-                        <img class="recommand-avatar" src="/img/common/reid-avatar.png">
-                    </div>
-                    <div class="pure-u-3-4">
-                        <h5 class="recommand-name">kubernetes</h5>
-                        <h4 class="recommand-subject">kubernetes</h4>
-                        <p class="recommand-desc">
-                            Production-Grade Container Scheduling and Management http://kubernetes.io.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <recommand-panel class="pure-u-5-24 recommand-box"></recommand-panel>
     </div>
 </body>
 <script>
@@ -80,6 +32,7 @@
         uku.registerComponent('repo-item','/components/repo-item.html',true);
         uku.registerComponent('post-panel','/components/post-panel.html',true);
         uku.registerComponent('detail-panel','/components/detail-panel.html',true);
+        uku.registerComponent('recommand-panel','/components/recommand-panel.html',true);
         uku.registerController('homeCtrl',homeCtrl);
         uku.addListener(Ukulele.INITIALIZED,function(){
             homeCtrl.userInfo();
@@ -132,10 +85,6 @@
                             self.user.count_repos = data.repos.length;
                             uku.refresh();
                             console.log(data);
-                            // var dom = document.getElementById('repoPanel');
-                            // dom.addEventListener('giveMeStarEvent',function(e){
-                            //     alert(e.repo.name);
-                            // });
                         });
                     } 
                 },function(err){

@@ -8,15 +8,13 @@ describe('baseDAO unit test', function () {
     var mockData = {
         username: 'test username',
         star_money: 5,
-        pushed_repos: '',
-        create_time: now,
-        update_time: now
+        avatar: 'http://www.aa.com/1.jpg',
+        create_time: now
     };
 
     var mockData_update = {
         username: 'update username',
-        star_money: 4,
-        pushed_repos: 'ukujs,give-me-star'
+        star_money: 4
     };
 
    describe('testing function: add', function () {
@@ -49,14 +47,13 @@ describe('baseDAO unit test', function () {
 
    describe('testing function: update', function () {
         it('should update entity', function (done) {
-            mockData_update.update_time = new Date();
             baseDAO.update(newEntityId,mockData_update, function (err, result) {
                 var conditions = [{key:'id',opt:'=',value:newEntityId}];
                 baseDAO.query(['*'], conditions, function (result) {
                     assert.equal(result.length, 1);
                     assert.equal(result[0].id, newEntityId);
                     assert.equal(result[0].username, mockData_update.username);
-                    newEntity = result[0];
+                    newEntity = result[0];npm
                     done();
                 });
             });
