@@ -22,6 +22,7 @@
             <div style="padding:1em;float:right">
                  <button class="pure-button pure-button-primary">Draft</button>
                  <button class="pure-button pure-button-primary">Publish</button>
+                 <button class="pure-button pure-button-primary" uku-onclick="cc.cancelBtnHandler()">Canel</button>
             </div>
         </div>
     </template>
@@ -29,6 +30,9 @@
         (function(Editor) {
             return function(uku) {
                 this.post = "";
+                this.cancelBtnHandler = function(){
+                    this.fire("post_cancel_event");
+                }
                 var simplemde = new Editor();
                 Object.defineProperty(this, "post_md", {
                     set: function(value) {

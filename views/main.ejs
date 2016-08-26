@@ -17,8 +17,12 @@
         <profile-panel class="pure-u-4-24 profile-box" uku-profile="homeCtrl.user"></profile-panel>
 
         <repo-panel class="pure-u-5-24 repo-box" id="repoPanel" uku-repolist="homeCtrl.user.repos"></repo-panel>
-        <post-panel class="pure-u-10-24 detail-box" id="postPanel" style="display:none"></post-panel>
-        <detail-panel class="pure-u-10-24 detail-box" id="detailPanel" ></detail-panel>
+        <div class="pure-u-10-24">
+            <detail-panel class="detail-box" id="detailPanel" ></detail-panel>
+            <post-panel class="detail-box" id="postPanel" style="display:none"></post-panel>
+        </div>
+        
+        
         <div class="pure-u-5-24 recommand-box">
             <div class="pure-g recommand-header">
                 <div class="pure-u">
@@ -79,12 +83,34 @@
         uku.registerController('homeCtrl',homeCtrl);
         uku.addListener(Ukulele.INITIALIZED,function(){
             homeCtrl.userInfo();
+            var dom = document.getElementById('repoPanel');
+            var detailPanel = document.getElementById("detailPanel");
+            var postPanel = document.getElementById("postPanel");
+            dom.addEventListener('givemestarevent',function(e){
+                //alert(e.data.repo.name);
+                
+                //detailPanel.classList.add("animated","fadeOut");
+                detailPanel.style.display="none";
+                //detailPanel.classList.toggle("animated","fadeOut");
+                postPanel.style.display="block";
+                
+            });
+
+            postPanel.addEventListener('post_cancel_event',function(e){
+                //postPanel.classList.add("animated","fadeOut");
+                postPanel.style.display="none";
+
+                detailPanel.style.display="block";
+                //detailPanel.classList.add("animated","fadeIn");
+            });
         });
         uku.init();
 
         function HomeController(uku){
             var self = this;
             this.user = undefined;
+
+            this.animated_class = "animated"
             
             //this.repos = undefined;
             this.userInfo = function(){
