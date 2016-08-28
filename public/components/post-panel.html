@@ -3,24 +3,23 @@
         <div>
             <form class="pure-form pure-form-stacked" style="padding:1em">
                 <fieldset>
+                    <legend uku-text="cc.post.name"></legend>
                     <div class="pure-control-group">
-                        <input id="title" type="text" placeholder="Title" class="pure-input-1">
+                        <input type="text" placeholder="Description" uku-value="cc.post.description" class="pure-input-1" required>
                     </div>
                     <div class="pure-control-group">
-                        <textarea uku-text="cc.post"></textarea>
+                        <input type="text" placeholder="Tags" uku-value="cc.post.tags" class="pure-input-1">
+                    </div>
+                    <div class="pure-control-group">
+                        <input type="text" placeholder="Demo URL" uku-value="cc.post.demo_url" class="pure-input-1-2">
+                    </div>
+                    <div class="pure-control-group">
+                        <textarea></textarea>
                     </div>
                 </fieldset>
             </form>
-            <div class="pure-g" style="padding:1em">
-                <div class="pure-u-1-4">
-                   
-                </div>
-                <div class="pure-u-1-4">
-                    
-                </div>
-            </div>
             <div style="padding:1em;float:right">
-                 <button class="pure-button pure-button-primary">Draft</button>
+                 <button class="pure-button pure-button-primary" uku-onclick="cc.draftBtnHandler()">Draft</button>
                  <button class="pure-button pure-button-primary">Publish</button>
                  <button class="pure-button pure-button-primary" uku-onclick="cc.cancelBtnHandler()">Cancel</button>
             </div>
@@ -29,18 +28,46 @@
     <script>
         (function(Editor) {
             return function(uku) {
-                this.post = "";
+                this.post = undefined;
+                this.repo = undefined;
                 this.cancelBtnHandler = function(){
                     this.fire("post_cancel_event");
-                }
+                };
+                this.draftBtnHandler = function(){
+                    this.content = simplemde.value();
+                    console.log(this.content);
+                };
                 var simplemde = new Editor();
-                Object.defineProperty(this, "post_md", {
+                Object.defineProperty(this, "mypost", {
                     set: function(value) {
                         if (value) {
-                            this.post = value;
+                            //this.post = value;
+                            if(!value.status){
+                                this.post = createNewPost(value.repo);
+                            }else{
+                                this.post = value;
+                            }
                         }
                     }
                 });
+                function createNewPost(repo){
+                    var post = {};
+                    post.content = repo.name + " is a ... ";
+                    post.name = "Please give "+repo.name + " a start";
+                    post.tags = "";
+                    post.demo_url = "";
+                    post.description = "";
+                    return post;
+                }
+                // Object.defineProperty(this, "repository", {
+                //     set: function(value) {
+                //         if (value) {
+                //             this.repo = value;
+                //             this.content = this.repo.name + " is a ... ";
+                //             simplemde.value(this.content);
+                //         }
+                //     }
+                // });
             };
         })(SimpleMDE);
     </script>
