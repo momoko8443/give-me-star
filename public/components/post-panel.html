@@ -34,8 +34,19 @@
                     this.fire("post_cancel_event");
                 };
                 this.draftBtnHandler = function(){
-                    this.content = simplemde.value();
-                    console.log(this.content);
+                    this.post.content = simplemde.value();
+                    var headers = new Headers({"Content-Type": "application/json"});
+
+                    fetch('/post',{credentials: 'same-origin',method:'POST',header:headers}).then(function(res){
+                        if (res.ok) {
+                            res.json().then(function(data) {
+                                
+                            });
+                        } 
+                    },function(err){
+                        console.log("Fetch failed!", err);
+                    });
+                    //console.log(this.content);
                 };
                 var simplemde = new Editor();
                 Object.defineProperty(this, "mypost", {
@@ -44,6 +55,7 @@
                             //this.post = value;
                             if(!value.status){
                                 this.post = createNewPost(value.repo);
+                                simplemde.value(this.post.content);
                             }else{
                                 this.post = value;
                             }
@@ -59,15 +71,6 @@
                     post.description = "";
                     return post;
                 }
-                // Object.defineProperty(this, "repository", {
-                //     set: function(value) {
-                //         if (value) {
-                //             this.repo = value;
-                //             this.content = this.repo.name + " is a ... ";
-                //             simplemde.value(this.content);
-                //         }
-                //     }
-                // });
             };
         })(SimpleMDE);
     </script>

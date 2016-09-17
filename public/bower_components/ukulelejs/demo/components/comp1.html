@@ -1,4 +1,12 @@
 <uku-component>
+    <style>
+        button{
+            color:red;
+        }
+        p{
+            color:yellow;
+        }
+    </style>
     <template>
         <div>
             <button>{{cc.buttonName}}</button>
@@ -6,6 +14,10 @@
             <p>
                 {{cc.message}}
             </p>
+            <button uku-visible="cc.showBtn">Add</button>
+            <br/>
+            <button uku-render="cc.showBtn">Edit</button>
+            <button uku-onclick="cc.toggleShowHide()">Show/Hide</button>
         </div>
     </template>
     <script>
@@ -15,7 +27,11 @@
                 this.buttonName = "component button";
                 this.show = function(){
                     alert('success');
-                }
+                };
+                this.showBtn = false;
+                this.toggleShowHide = function(){
+                    this.showBtn = !this.showBtn;
+                };
             };
         })();
     </script>

@@ -17,8 +17,8 @@
         <profile-panel class="pure-u-4-24 profile-box" uku-profile="homeCtrl.user"></profile-panel>
         <repo-panel class="pure-u-5-24 repo-box" id="repoPanel" uku-repolist="homeCtrl.user.repos"></repo-panel>
         <div class="pure-u-10-24">
-            <detail-panel class="detail-box" id="detailPanel" ></detail-panel>
-            <post-panel class="detail-box" id="postPanel" uku-mypost="homeCtrl.selectedPost" style="display:none"></post-panel>
+            <detail-panel class="detail-box" id="detailPanel" uku-render="homeCtrl.detailMode"></detail-panel>
+            <post-panel class="detail-box" id="postPanel" uku-mypost="homeCtrl.selectedPost" uku-render="homeCtrl.postMode"></post-panel>
         </div>
         <recommand-panel class="pure-u-5-24 recommand-box"></recommand-panel>
     </div>
@@ -39,24 +39,17 @@
             var detailPanel = document.getElementById("detailPanel");
             var postPanel = document.getElementById("postPanel");
             dom.addEventListener('givemestarevent',function(e){
-                //alert(e.data.repo.name);
-                
-                //detailPanel.classList.add("animated","fadeOut");
-                detailPanel.style.display="none";
-                //detailPanel.classList.toggle("animated","fadeOut");
-                postPanel.style.display="block";
                 homeCtrl.selectedPost = {repo:e.data.repo};
+                homeCtrl.detailMode = false;
+                homeCtrl.postMode = true;
                 uku.refresh();
                 
             });
 
             postPanel.addEventListener('post_cancel_event',function(e){
-                //postPanel.classList.add("animated","fadeOut");
-                postPanel.style.display="none";
-
-                detailPanel.style.display="block";
-                
-                //detailPanel.classList.add("animated","fadeIn");
+                homeCtrl.detailMode = true;
+                homeCtrl.postMode = false;
+                uku.refresh();
             });
         });
         uku.init();
@@ -65,7 +58,9 @@
             var self = this;
             this.user = undefined;
             this.selectedRepo = undefined;
-            this.animated_class = "animated"
+            this.animated_class = "animated";
+            this.detailMode = true;
+            this.postMode = false;
             
             //this.repos = undefined;
             this.userInfo = function(){
